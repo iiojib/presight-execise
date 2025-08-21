@@ -1,6 +1,4 @@
-<img src=".github/preview-1.png" alt="Preview 1" width="250" />
-<img src=".github/preview-2.png" alt="Preview 2" width="250" />
-<img src=".github/preview-3.png" alt="Preview 3" width="250" />
+<img src=".github/preview-1.png" alt="Preview 1" width="250" /> <img src=".github/preview-2.png" alt="Preview 2" width="250" /> <img src=".github/preview-3.png" alt="Preview 3" width="250" />
 
 ## Run with Docker Compose
 
