@@ -26,20 +26,20 @@ export const PersonFilter = ({ isLoading, items, selection, children, onItemChan
 
       <ul className="pl-2 flex flex-col gap-1">
         {isLoading && Array.from({ length: 6 }, (_, i) => (
-            // biome-ignore lint/suspicious/noArrayIndexKey: ignore
+          // biome-ignore lint/suspicious/noArrayIndexKey: ignore
           <li key={i}><CheckboxSkeleton /></li>
-          ))}
+        ))}
 
         {!isLoading && items.map((item) => (
-            <li key={item}>
+          <li key={item}>
             <Checkbox
               checked={selectionSet.has(item)}
               onChange={(checked) => onItemChange(item, checked)}
             >
-                {item}
-              </Checkbox>
-            </li>
-          ))}
+              {item}
+            </Checkbox>
+          </li>
+        ))}
       </ul>
     </div>
   );

@@ -11,15 +11,15 @@ export const Jobs = () => {
 
   const queries = useQueries({
     queries: Array.from({ length: 20 }, (_, i) => queryOptions("post", "/jobs/{sessionId}", {
-          key: `${sessionId}-${i}`,
-          params: {
-            path: {
-              sessionId,
+      key: `${sessionId}-${i}`,
+      params: {
+        path: {
+          sessionId,
         }
-        },
+      },
     }, {
-          refetchOnReconnect: false,
-          refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+      refetchOnWindowFocus: false,
     })),
   });
 
@@ -27,13 +27,13 @@ export const Jobs = () => {
   useEffect(() => {
     return subscribe((data) => {
       queryClient.setQueriesData({
-          predicate: ({ state }) => {
-            if (hasOwn(state.data, "id")) {
-              return state.data.id === data.id;
-            }
+        predicate: ({ state }) => {
+          if (hasOwn(state.data, "id")) {
+            return state.data.id === data.id;
+          }
 
-            return false;
-          },
+          return false;
+        },
       }, data);
     });
   }, [sessionId, queries]);

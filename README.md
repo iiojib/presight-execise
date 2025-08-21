@@ -3,8 +3,8 @@
 ## Run with Docker Compose
 
 ### Requirements
+- Node.js 22+
 - Docker and Docker Compose
-- Node.js >= 22
 
 ### Commands
 ```sh

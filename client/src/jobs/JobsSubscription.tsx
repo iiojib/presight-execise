@@ -56,8 +56,8 @@ export const JobSubscriptionProvider = () => {
   }
 
   return (
-    <JobSubscriptionContext.Provider value={context}>
+    <JobSubscriptionContext value={context}>
       <Outlet />
-    </JobSubscriptionContext.Provider>
+    </JobSubscriptionContext>
   );
 };

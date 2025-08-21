@@ -3,9 +3,9 @@ import { StreamPrinter } from "../stream/StreamPrinter";
 
 export const Stream = () => {
   const { data, isError, error } = useQuery("get", "/stream", { parseAs: "stream" }, {
-      gcTime: 0,
-      refetchOnReconnect: false,
-      refetchOnWindowFocus: false,
+    gcTime: 0,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
   });
 
   if (isError) {

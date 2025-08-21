@@ -15,21 +15,21 @@ export const Persons = () => {
   const hobbiesQuery = useQuery("get", "/persons/top-hobbies");
 
   const personsQuery = useInfiniteQuery("get", "/persons", {
-      params: {
-        query: {
-          search,
-          nationalities,
-          hobbies,
-          limit: 20,
-        },
+    params: {
+      query: {
+        search,
+        nationalities,
+        hobbies,
+        limit: 20,
       },
+    },
   }, {
-      pageParamName: "page",
-      initialPageParam: 1,
-      getNextPageParam: (lastPage: unknown[], _allPages: unknown, lastPageParam: number) => {
-        if (lastPage.length < 20) return null;
-        return lastPageParam + 1;
-      },
+    pageParamName: "page",
+    initialPageParam: 1,
+    getNextPageParam: (lastPage: unknown[], _allPages: unknown, lastPageParam: number) => {
+      if (lastPage.length < 20) return null;
+      return lastPageParam + 1;
+    },
   });
 
   if (nationalitiesQuery.isError || hobbiesQuery.isError || personsQuery.isError) {
