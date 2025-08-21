@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS person_hobbies;
+DROP TABLE IF EXISTS hobbies;

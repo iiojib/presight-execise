@@ -1,0 +1,30 @@
+{
+  "name": "presight-execise",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "lint": "npx @biomejs/biome lint",
+    "migrate:up": "migrate -path=./migrations/ -database postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}/${POSTGRES_DB}?sslmode=disable up",
+    "migrate:down": "migrate -path=./migrations/ -database postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}/${POSTGRES_DB}?sslmode=disable down",
+    "migrate:create": "migrate create -ext sql -dir ./migrations -seq",
+    "migrate:drop": "migrate -path=./migrations/ -database postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}/${POSTGRES_DB}?sslmode=disable drop",
+    "env:migrate:up": "dotenv -- npm run migrate:up",
+    "env:migrate:down": "dotenv -- npm run migrate:down",
+    "env:migrate:create": "dotenv -- npm run migrate:create",
+    "env:migrate:drop": "dotenv -- npm run migrate:drop",
+    "spec:build": "mkdir -p ./specs/dist/api/v1 && ref=\\$ref envsubst < ./specs/api/v1/openapi.src.yml > ./specs/dist/api/v1/openapi.yml",
+    "api-client:build": "npm run spec:build && openapi-typescript ./specs/dist/api/v1/openapi.yml -o ./client/src/api/v1.ts",
+    "env:spec:build": "dotenv -- npm run spec:build",
+    "env:api-client:build": "dotenv -- npm run api-client:build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.0",
+    "@hey-api/openapi-ts": "^0.80.10",
+    "dotenv-cli": "^10.0.0",
+    "openapi-typescript": "^7.9.1",
+    "typescript": "^5.9.2"
+  }
+}

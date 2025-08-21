@@ -1,0 +1,9 @@
+/** biome-ignore-all lint/suspicious/noUnknownAtRules: tailwind */
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant safari (&.safari, .safari &);
+
+* {
+  color-scheme: light dark;
+}

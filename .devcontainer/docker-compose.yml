@@ -1,0 +1,31 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./.devcontainer/Dockerfile
+    command: sleep infinity
+    volumes:
+      - ./:/workspaces:cached
+
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  nginx:
+    image: nginx:latest
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    volumes:
+      - ./nginx/dev:/etc/nginx/templates
+
+volumes:
+  postgres-data:
+
+networks:
+  default:
+    name: "workspace"

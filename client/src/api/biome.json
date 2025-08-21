@@ -1,0 +1,7 @@
+{
+  "root": false,
+  "extends": "//",
+  "files": {
+    "includes": ["**", "!v1.ts"]
+  }
+}

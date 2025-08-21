@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "jsx": "react-jsx",
+    "lib": ["esnext", "dom"],
+    "sourceMap": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitReturns": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "strict": true,
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "erasableSyntaxOnly": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": ["src", "typing.d.ts"]
+}
