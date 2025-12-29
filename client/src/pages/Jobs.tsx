@@ -36,7 +36,7 @@ export const Jobs = () => {
         },
       }, data);
     });
-  }, [sessionId, queries]);
+  }, [sessionId]);
 
   return (
     <div className="grid grid-cols-[1fr_minmax(0,1280px)_1fr] grid-rows-[0_minmax(0,auto)_minmax(0,auto)_1fr_0]">
@@ -65,9 +65,9 @@ export const Jobs = () => {
 
           <tbody className="divide-y divide-gray-200 *:even:bg-gray-50 dark:divide-gray-700 dark:*:even:bg-gray-800">
             {queries.map((query, i) => {
-              const { data, isLoading, isError } = query;
+              const { data, isPending, isLoading, isError } = query;
 
-              if (isLoading) {
+              if (isLoading || isPending) {
                 return (
                   // biome-ignore lint/suspicious/noArrayIndexKey: ignore
                   <tr key={i}>
